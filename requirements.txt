@@ -1,0 +1,7 @@
+###### Requirements - As deducted from source ######
+numpy
+pickle
+sklearn
+scikit-image
+imutils
+opencv-python
