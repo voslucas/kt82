@@ -14,6 +14,8 @@ I've collected (most) of the needed packages in requirements.txt. Install the pa
 
     pip install -r requirements.txt
 
+Testje Martin
+
 
 ## Notes
 Remark : I used pip to install opencv-python. This installs a precompiled CPU only version. This is sufficient for this project. GPU is not necessary.
