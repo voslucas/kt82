@@ -15,8 +15,8 @@ numPoints = 24
 radius = 8
 
 for (i, imagePath) in enumerate(imagePaths):
-	#if(int(i) >= 10000 and int(i) <= 15000):
-	#	continue
+	if(int(i) >= 10000 and int(i) <= 15000):
+		continue
 	print("[INFO] processing image {}/{}".format(i + 1,len(imagePaths)))
 	name = imagePath.split(os.path.sep)[-2]
 	img = cv2.imread(imagePath)
@@ -28,6 +28,7 @@ for (i, imagePath) in enumerate(imagePaths):
 	(hist, _) = np.histogram(hist.ravel(), bins=np.arange(0, numPoints + 3), range=(0, numPoints + 2))
 	#normalize the histogram
 	hist = hist.astype("float")
+    
 	hist /= (hist.sum() + eps)
  
 	lbp_embedding = hist
