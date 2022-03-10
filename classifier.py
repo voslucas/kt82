@@ -27,9 +27,16 @@ print(np.array(data["embeddings"]).shape)
 print("[INFO] training model...")
 clf = SVC(C=5, kernel="linear", probability=True)
 #clf = SVC(C=1, kernel="rbf" ,degree=3 , probability=True)
+
 clf.fit(data["embeddings"], labels)
-#clf.fit(X_train, y_train)
+# print("Score train : ")
+# print(clf.score(X_train, y_train))
+# print("Score test : ")
+# print(clf.score(X_test, y_test))
+
+print("Score  : ")
 print(clf.score(data["embeddings"], labels))
+
 
 
 
