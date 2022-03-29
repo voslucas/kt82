@@ -66,8 +66,9 @@ while (ret):
 
                 # LV  : Replaced multichannel=false with channel_axis=None according documentation. 
 
-                hog_embedding = hog(box, orientations=8, pixels_per_cell=(3, 3), cells_per_block=(1, 1), visualize=False, channel_axis=None)
+                hog_embedding = hog(box, orientations=8, pixels_per_cell=(3, 3), cells_per_block=(1, 1), visualize=False, channel_axis=None, transform_sqrt=True)
                 embedding = np.append(hog_embedding.ravel(),lbp_embedding)
+                #embedding = lbp_embedding
     			#embedding = pca.transform(embedding.reshape(1, -1))  
                 prediction = recognizer.predict(embedding.reshape(1, -1))
     			#cv2.rectangle(nroi,(j,i),(j-121,i-121),(255,0,0),2)
@@ -103,12 +104,13 @@ f = open("framedata.pickle", "wb")
 f.write(pickle.dumps(data))
 f.close()
 
-#construct the 'sorted' video
+#construct the 'sorted' video 
+#this sorts the videoframe on the number of red blocks.
 newlist = sorted(data, key=lambda d: d['red']) 
 
-# LV.. yep size is reversed :( first height then width.. Took me 30 min of my life.
+# LV.. yep size is reversed :( first height then width.. Took me 30 mins of my life.
 size = (400,355)
-writer = cv2.VideoWriter('output.avi', cv2.VideoWriter_fourcc(*'MJPG'), 25, size)
+writer = cv2.VideoWriter('output3.avi', cv2.VideoWriter_fourcc(*'MJPG'), 25, size)
 
 for datarow in newlist:  
     framenumber = datarow['frame']

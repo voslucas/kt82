@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-cap = cv2.VideoCapture('Junction2.avi')
+cap = cv2.VideoCapture('c:\\temp\\Junction3.mp4')
 
 ic = 0
 jc = 0
@@ -23,7 +23,7 @@ while True:
                 box = roi[i-44:i,j-44:j]
     			#cv2.rectangle(roi,(j,i),(j-44,i-44),(255,0,0),2)
                 print("Saved image " + str(jc))
-                cv2.imwrite('dataset/'+str(jc)+'.jpg',box)
+                cv2.imwrite('dataset/new-'+str(jc)+'.jpg',box)
                 jc+=1
     			
     		#cv2.imshow("op",roi)

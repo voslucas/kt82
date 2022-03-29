@@ -36,3 +36,21 @@ Classifier
 - Paper mentions 80/20 split. 
 - Split into test/train is not explicitely made.
 - Scikit documentaion says that the `Probably=true` property of the classifier internally uses a 5 fold cross validation, hence the 
+
+
+## Instructions to replicate the accuracy without LBP 
+
+Remove all the pickles.
+
+Change Save_HOG_LBP to skip the LBP part.
+- Change `embedding = np.append(hog_embedding.ravel(),lbp_embedding.ravel())` to `embedding = hog_embedding.ravel()`
+
+Run the Save_HOG_LBP
+Run the Classifier
+
+
+## Used Youtube video 
+
+https://www.youtube.com/watch?v=MNn9qKG2UFI
+
+

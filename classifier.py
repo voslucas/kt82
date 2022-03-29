@@ -37,9 +37,6 @@ clf.fit(data["embeddings"], labels)
 print("Score  : ")
 print(clf.score(data["embeddings"], labels))
 
-
-
-
 # write the actual face recognition model to disk
 f = open("classifier.pickle", "wb")
 f.write(pickle.dumps(clf))
